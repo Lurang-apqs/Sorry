@@ -36,7 +36,7 @@
             background: #ff3385;
         }
 
-        #content {
+        #content, #forgive-box {
             display: none;
             margin-top: 25px;
             animation: fadeIn 1s ease-in-out;
@@ -66,6 +66,11 @@
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
+
+        .yes-btn {
+            background: #ff85c2;
+            margin: 10px;
+        }
     </style>
 </head>
 
@@ -80,9 +85,24 @@
         <p>You mean a lot to me… please don’t stay mad ❤️</p>
     </div>
 
+    <div id="forgive-box">
+        <h2>Will you forgive me? 🥺💗</h2>
+        <button class="yes-btn" onclick="forgiven()">Yes</button>
+        <button class="yes-btn" onclick="forgiven()">Yes</button>
+    </div>
+
+    <div id="final-msg" style="display:none; margin-top:20px; font-size:22px; color:#ff4d88;">
+        Yay!! I knew you would forgive me! 💖😊  
+        You're the sweetest! 🌸
+    </div>
+
     <script>
         function startEffect() {
             document.getElementById("content").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("forgive-box").style.display = "block";
+            }, 1200);
+
             rainFlowers();
         }
 
@@ -101,6 +121,12 @@
 
                 setTimeout(() => f.remove(), 4000);
             }
+        }
+
+        function forgiven() {
+            document.getElementById("forgive-box").style.display = "none";
+            document.getElementById("final-msg").style.display = "block";
+            rainFlowers();
         }
     </script>
 
