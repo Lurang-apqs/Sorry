@@ -87,8 +87,9 @@
 
     <div id="forgive-box">
         <h2>Will you forgive me? 🥺💗</h2>
-        <button class="yes-btn" onclick="forgiven()">Yes</button>
-        <button class="yes-btn" onclick="forgiven()">Yes</button>
+
+        <button id="yes1" class="yes-btn" onclick="moveYes()">Yes</button>
+        <button id="yes2" class="yes-btn" onclick="moveYes()">Yes</button>
     </div>
 
     <div id="final-msg" style="display:none; margin-top:20px; font-size:22px; color:#ff4d88;">
@@ -97,8 +98,11 @@
     </div>
 
     <script>
+        let moves = 0;
+
         function startEffect() {
             document.getElementById("content").style.display = "block";
+
             setTimeout(() => {
                 document.getElementById("forgive-box").style.display = "block";
             }, 1200);
@@ -106,27 +110,46 @@
             rainFlowers();
         }
 
+        function moveYes() {
+            moves++;
+
+            if (moves < 5) {
+                moveButton("yes1");
+                moveButton("yes2");
+                rainFlowers();
+            } else {
+                document.getElementById("forgive-box").style.display = "none";
+                document.getElementById("final-msg").style.display = "block";
+                rainFlowers();
+            }
+        }
+
+        function moveButton(id) {
+            const btn = document.getElementById(id);
+
+            const x = Math.random() * (window.innerWidth - 120);
+            const y = Math.random() * (window.innerHeight - 120);
+
+            btn.style.position = "fixed";
+            btn.style.left = x + "px";
+            btn.style.top = y + "px";
+        }
+
         function rainFlowers() {
             const flowers = ["🌸","🌺","💮","🌼","🌷"];
 
-            for (let i = 0; i < 40; i++) {
+            for (let i = 0; i < 25; i++) {
                 let f = document.createElement("div");
                 f.className = "flower";
                 f.textContent = flowers[Math.floor(Math.random() * flowers.length)];
 
                 f.style.left = Math.random() * window.innerWidth + "px";
-                f.style.animationDuration = (2.5 + Math.random() * 2) + "s";
+                f.style.animationDuration = (2 + Math.random() * 2) + "s";
 
                 document.body.appendChild(f);
 
                 setTimeout(() => f.remove(), 4000);
             }
-        }
-
-        function forgiven() {
-            document.getElementById("forgive-box").style.display = "none";
-            document.getElementById("final-msg").style.display = "block";
-            rainFlowers();
         }
     </script>
 
