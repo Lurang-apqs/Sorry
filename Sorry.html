@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I'm Sorry 💞</title>
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ffe6f2, #e3f0ff);
+        text-align: center;
+        padding: 40px;
+        color: #444;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #ff4d88;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        margin: 20px 0;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: scale(1.03);
+    }
+
+    .hidden {
+        display: none;
+        font-size: 1.1rem;
+        color: #555;
+        margin-top: 10px;
+    }
+
+    .gif {
+        width: 140px;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+
+    .final {
+        display: none;
+        margin-top: 30px;
+        background: #ffb3d9;
+        padding: 20px;
+        border-radius: 15px;
+        font-size: 1.3rem;
+        color: #fff;
+    }
+</style>
+</head>
+<body>
+
+<h1>I’m Sorry 💗</h1>
+<p>I didn’t mean to upset you… tap each card 👇</p>
+
+<div class="container">
+
+    <!-- Card 1 -->
+    <div class="card" onclick="reveal(1)">💌 Click me</div>
+    <div id="msg1" class="hidden">
+        <img class="gif" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDk0MXhjY2oyZmp0aGU3bXZjOGtlbW5tbXZwNnJyZjR5d21xMmhjZyZlcD12MV9naWZzX3NlYXJjaCZjdT1n/MDJ9IbxxvDUQM/giphy.gif">
+        <p>I was honestly not ignoring you... 😔</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" onclick="reveal(2)">🌸 Click me</div>
+    <div id="msg2" class="hidden">
+        <img class="gif" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDk0MXhjY2oyZmp0aGU3bXZjOGtlbW5tbXZwNnJyZjR5d21xMmhjZyZlcD12MV9naWZzX3NlYXJjaCZjdT1n/MDJ9IbxxvDUQM/giphy.gif">
+        <p>I really care about you and hate making you upset 💞</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" onclick="reveal(3)">🐻 Click me</div>
+    <div id="msg3" class="hidden">
+        <img class="gif" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDk0MXhjY2oyZmp0aGU3bXZjOGtlbW5tbXZwNnJyZjR5d21xMmhjZyZlcD12MV9naWZzX3NlYXJjaCZjdT1n/MDJ9IbxxvDUQM/giphy.gif">
+        <p>You’re important to me, more than you think 💗</p>
+    </div>
+
+    <!-- Final -->
+    <div class="card" onclick="showFinal()">✨ Last one</div>
+</div>
+
+<div id="finalMsg" class="final">
+    I’m really, really sorry for not picking up your calls.  
+    Please don’t stay mad at me 🥺💗  
+</div>
+
+<script>
+function reveal(num) {
+    document.getElementById("msg" + num).style.display = "block";
+}
+
+function showFinal() {
+    document.getElementById("finalMsg").style.display = "block";
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
